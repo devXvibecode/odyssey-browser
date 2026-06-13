@@ -22,22 +22,44 @@ jobs:
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
+      with:
+        api-level: 34
+        build-tools: 34.0.0
 
-    - name: Make Gradlew executable
-      run: chmod +x gradlew
-      # This will fail if gradlew doesn't exist, but we'll handle it
+    - name: Display Java version
+      run: java -version
+
+    - name: Display Gradle version
+      run: gradle --version || ./gradlew --version || echo "Neither gradle nor gradlew found"
+
+    - name: Make Gradlew executable if exists
+      run: |
+        if [ -f "gradlew" ]; then
+          chmod +x gradlew
+          echo "gradlew found and made executable"
+        else
+          echo "gradlew not found, will use gradle command"
+        fi
 
     - name: Build Debug APK
       run: |
+        echo "Starting build..."
         if [ -f "gradlew" ]; then
           echo "Using gradlew"
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
         else
           echo "Using gradle command"
-          gradle assembleDebug
+          gradle assembleDebug --stacktrace
         fi
 
+    - name: List APK files if build succeeded
+      if: success()
+      run: |
+        echo "Checking for APK files..."
+        find . -name "*.apk" -type f || echo "No APK files found"
+
     - name: Upload APK as artifact
+      if: success()
       uses: actions/upload-artifact@v3
       with:
         name: app-debug-apk

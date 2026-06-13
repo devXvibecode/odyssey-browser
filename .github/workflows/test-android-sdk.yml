@@ -16,7 +16,7 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
+      uses: android-actions/setup-android@v3
       with:
         api-level: 34
         build-tools: 34.0.0

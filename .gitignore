@@ -1,0 +1,51 @@
+# Built application files
+*.apk
+*.aab
+
+# Java/Android
+/build/
+/app/build/
+
+# Gradle
+.gradle/
+/local.properties
+/.gradle/
+
+# Signing files
+*.keystore
+
+# Local configuration files (sdk path, etc)
+local.properties
+
+# NDK
+obj/
+
+# Crashlytics (for Android Studio and Eclipse)
+fabric/
+
+# Local Gradle wrapper distribution
+gradle-wrapper.jar
+
+# Session Files
+*.session
+
+# Logs
+*.log
+
+# Android Studio
+*/build/*
+.idea/
+*.iml
+*.ipr
+*.iws
+*.gradle
+gradle/
+.captures/
+.externalNativeBuild/
+.cxx/
+app/src/main/assets/
+app/src/main/res/raw/
+
+# Kotlin
+.kapt/
+.kotlin/

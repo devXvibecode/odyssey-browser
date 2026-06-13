@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Odyssey Browser</string>
+    <string name="hint_what_youd_like_to_accomplish">What would you like to accomplish?</string>
+    <string name="button_send">Send</string>
+    <string name="chat_input_hint">Type a message...</string>
+    <string name="title_chat">Chat with AI</string>
+    <string name="error_network">Network error. Please try again.</string>
+</resources>
